@@ -5,19 +5,15 @@ import "./styles.css";
 
 function App() {
   const [count, setCount] = useState(0);
-  const [delayedCount, setDelayedCount] = useState(0);
 
+  const [delayedCount, setDelayedCount] = useState(0);
   const [delayedRefCount, setDelayedRefCount] = useState(0);
 
   const countRef = useRef(count);
   countRef.current = count;
 
-  const reducer = (accumulator, currentValue) => accumulator + currentValue;
-
-  const a = [count];
-
   let getDelayedCount = () => {
-    setTimeout(() => setDelayedCount(a.reduce(reducer)), 5000);
+    setTimeout(() => setDelayedCount(count), 5000);
   };
 
   let getDelayedRefCount = () => {
